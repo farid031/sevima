@@ -26,4 +26,20 @@ class C_beranda extends CI_Controller
         $data['list_gambar']    = $this->M_data->list_pict_beranda($this->session->userdata('id'))->result();
         $this->load->view('template/content', $data);
     }
+
+    public function like()
+    {
+        $post = $this->input->post();
+
+        $post_id = $post['post_id'];
+
+        $data = array(
+            'post_like_id_post'           => $post_id,
+            'post_like_id_user'           => $this->session->userdata('id'),
+            'post_like_created_by'        => $this->session->userdata('id'),
+            'post_like_created_at'        => date('Y-m-d H:i:s')
+        );
+
+        $this->M_data->simpan_data('post_like', $data);
+    }
 }

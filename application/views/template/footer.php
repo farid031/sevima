@@ -56,6 +56,22 @@
             });
         }
     }
+
+    function like_foto(post_id) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url('C_beranda/like') ?>",
+            data: {
+                post_id: post_id
+            },
+            success: function(response) {
+                window.location.reload();
+            },
+            error: function() {
+                alert('error');
+            }
+        });
+    }
 </script>
 
 </body>

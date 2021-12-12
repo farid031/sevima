@@ -73,12 +73,15 @@ class M_data extends CI_Model
     {
         return $this->db->query(
             "SELECT
-                * 
+                *,
+                COUNT(post_like_id) AS jml_like
             FROM
                 post
                 INNER JOIN follower ON following_id_user = post_file_created_by
                 INNER JOIN user ON post_file_created_by = user_id 
-            WHERE follower_id_user = ".$where
+                LEFT JOIN post_like ON post_id = post_like_id_post
+            WHERE follower_id_user = ".$where. "
+                GROUP BY post_id"
         );
     }
 

@@ -15,7 +15,7 @@
                 <?php foreach ($list_gambar as $data) { ?>
                     <article class="col-12 col-md-6 tm-post">
                         <hr class="tm-hr-primary">
-                        <a href="<?php echo base_url('C_detail_foto/index/'.$data->post_id) ?>" class="effect-lily tm-post-link tm-pt-40">
+                        <a href="<?php echo base_url('C_detail_foto/index/' . $data->post_id) ?>" class="effect-lily tm-post-link tm-pt-40">
                             <div class="tm-post-link-inner" style="height: 70%; width: 70%;">
                                 <img src=" <?php echo base_url($data->post_file_url) ?>" alt="Image" class="img-fluid">
                             </div>
@@ -29,7 +29,7 @@
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <span>0 like</span>
+                            <span><?php echo $data->jml_like; ?> like<br /><button align="right" style="background-color: #0CC;" class="btn btn-success btn-lg" onclick="like_foto(<?php echo $data->post_id ?>)">Like</button></span>
                             <span>0 comments</span>
                         </div>
                     </article>
