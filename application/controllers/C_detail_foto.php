@@ -23,7 +23,7 @@ class C_detail_foto extends CI_Controller
         $data['active_beranda'] = 'active';
         $data['active_post']    = '';
         $data['active_search']  = '';
-        $data['list_gambar']    = $this->M_data->pict_detail($post_id)->result();
+        $data['gambar']    = $this->M_data->pict_detail($post_id)->result();
         $this->load->view('template/content', $data);
     }
 }
