@@ -60,7 +60,7 @@ class C_my_post extends CI_Controller
             $data_gambar = $this->upload->data();
             $data = array(
                 'post_desc'             => $ket,
-                'post_file_url'         => $config['upload_path'].time().'_'.$data_gambar['file_name'],
+                'post_file_url'         => $config['upload_path'].$data_gambar['file_name'],
                 'post_file_type'        => $data_gambar['file_type'],
                 'post_file_size'        => $data_gambar['file_size'],
                 'post_file_created_by'  => $this->session->userdata('id'),
